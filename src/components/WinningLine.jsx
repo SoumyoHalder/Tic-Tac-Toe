@@ -3,12 +3,13 @@ import React from 'react';
 const WinningLine = ({ winningLine }) => {
   if (!winningLine) return null;
 
-  const gridSize = 33.33;
+  const gridSize = 33.33; // Each cell is 33.33% of the grid
 
-  const startX = winningLine[0] % 3 === 2 ? 100 : (winningLine[0] % 3) * gridSize;
-  const startY = Math.floor(winningLine[0] / 3) === 2 ? 100 : Math.floor(winningLine[0] / 3) * gridSize;
-  const endX = winningLine[2] % 3 === 2 ? 100 : (winningLine[2] % 3) * gridSize;
-  const endY = Math.floor(winningLine[2] / 3) === 2 ? 100 : Math.floor(winningLine[2] / 3) * gridSize;
+  // Calculate the center position of each box
+  const startX = (winningLine[0] % 3) * gridSize + gridSize / 2;
+  const startY = Math.floor(winningLine[0] / 3) * gridSize + gridSize / 2;
+  const endX = (winningLine[2] % 3) * gridSize + gridSize / 2;
+  const endY = Math.floor(winningLine[2] / 3) * gridSize + gridSize / 2;
 
   return (
     <div
