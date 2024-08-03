@@ -1,0 +1,13 @@
+button.glossy {
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15), -2px -2px 5px rgba(255, 255, 255, 0.7);
+    border-radius: 7px;
+  }
+  
+  button.glossy:hover {
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+  }
+  
+  button.glossy:active {
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2), inset -2px -2px 5px rgba(255, 255, 255, 0.6);
+  }
