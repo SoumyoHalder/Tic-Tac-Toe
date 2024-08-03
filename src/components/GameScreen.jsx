@@ -47,8 +47,8 @@ const GameScreen = () => {
     : `Player: ${isXNext ? "X" : "O"}`;
 
   return (
-    <div className="flex flex-col items-center bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 min-h-screen py-8 relative">
-      <div className="text-3xl font-bold mb-6 bg-clip-text text-transparent text-gray-100">
+    <div className="flex flex-col items-center bg-gradient-to-r from-indigo-400 via-purple-500 to-pink-500 min-h-screen py-8 sm:py-6 md:py-4 lg:py-2 relative">
+      <div className="text-3xl font-bold mb-6 bg-clip-text text-gray-100">
         {status}
       </div>
       {showPopup && (
