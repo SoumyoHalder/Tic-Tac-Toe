@@ -1,12 +1,19 @@
+import { faRobot } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import gameImg from "../assets/StartPage.png";
 import GameScreen from "./GameScreen";
-
 const GameStart = () => {
   const [playGame, setPlayGame] = useState(false);
+  const [gameMode, setGameMode] = useState("1v1");
 
-  const startGame = () => {
+  const startGame = (mode) => {
     setPlayGame(true);
+    setGameMode(mode);
+  };
+
+  const handleBack = () => {
+    setPlayGame(false);
   };
 
   return (
@@ -18,15 +25,24 @@ const GameStart = () => {
             src={gameImg}
             alt="Tic-Tac-Toe image"
           />
-          <button
-            onClick={startGame}
-            className="px-8 py-4 border-none rounded-xl bg-gradient-to-r from-green-400 to-teal-500 text-white text-2xl font-semibold shadow-xl transform transition-transform hover:scale-90 focus:outline-none"
-          >
-            Start Game
-          </button>
+          <div className="buttons mt-4 flex gap-4">
+            <button
+              onClick={() => startGame("1v1")}
+              className=" px-8 py-4 border-none rounded-xl bg-gradient-to-r from-green-400 to-teal-500 text-white text-2xl font-semibold shadow-xl transform transition-transform hover:scale-95 focus:outline-none"
+            >
+              1 vs 1
+            </button>
+            <button
+              onClick={() => startGame("1vsbot")}
+              className="px-8 py-4 border-none rounded-xl bg-gradient-to-r from-green-400 to-teal-500 text-white text-2xl font-semibold shadow-xl transform transition-transform hover:scale-95 focus:outline-none"
+            >
+              1 vs {<FontAwesomeIcon icon={faRobot} />}
+            </button>
+          </div>
         </div>
       )}
-      {playGame && <GameScreen />}
+
+      {playGame && <GameScreen mode={gameMode} onBack={handleBack} />}
     </>
   );
 };
